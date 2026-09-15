@@ -32,7 +32,7 @@
         "Node name for S&R": "UNETLoader"
       },
       "widgets_values": [
-        "minimax_h3_fl2va_int8_convrot.safetensors",
+        "Minimax-h3_Singularity_ref2va_Pruned_v1.3_int8.safetensors",
         "default"
       ]
     },
@@ -70,7 +70,7 @@
         "Node name for S&R": "LoraLoaderBypassModelOnly"
       },
       "widgets_values": [
-        "minimax_h3_turbo_4\u6b65\u52a0\u901fema_comfyui.safetensors",
+        "minimax_h3_turbo_4step.safetensors",
         1.0
       ]
     },
@@ -346,7 +346,7 @@
         "Node name for S&R": "MiniMaxH3DualClockSamplerT8"
       },
       "widgets_values": [
-        4,
+        6,
         12.0,
         3.0,
         "dual_clock_euler",
