@@ -18,6 +18,20 @@ else
     PYTHON_EXEC="python3"
 fi
 
+# Detect external SSD storage for outputs and inputs
+EXTERNAL_SSD="/Volumes/FutureHD"
+EXTRA_ARGS=()
+
+if [ -d "$EXTERNAL_SSD/ai-media-gen/comfyui/output" ]; then
+    echo "💾 External SSD connected: Directing outputs to $EXTERNAL_SSD/ai-media-gen/comfyui/output"
+    EXTRA_ARGS+=(--output-directory "$EXTERNAL_SSD/ai-media-gen/comfyui/output")
+fi
+
+if [ -d "$EXTERNAL_SSD/ai-media-gen/comfyui/input" ]; then
+    echo "📁 External SSD connected: Directing inputs to $EXTERNAL_SSD/ai-media-gen/comfyui/input"
+    EXTRA_ARGS+=(--input-directory "$EXTERNAL_SSD/ai-media-gen/comfyui/input")
+fi
+
 echo "=========================================================="
 echo "🚀 Starting ComfyUI on Apple Silicon (M5 Max 128GB Unified Memory)"
 echo "✨ Features: High VRAM mode, PyTorch MPS acceleration, Auto Preview"
@@ -29,4 +43,5 @@ exec "$PYTHON_EXEC" main.py \
     --port 8188 \
     --highvram \
     --preview-method auto \
+    "${EXTRA_ARGS[@]}" \
     "$@"
